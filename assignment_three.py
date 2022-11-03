@@ -1,46 +1,28 @@
 def startup():
     print("--This program will calculate the total surface area of a rectangular prism--")
 
-def length():
+def inputs():
+    global l
+    global h
+    global w
     l = float(input("Input length >> "))
-    return l
-
-def width():
     w = float(input("Input width >> "))
-    return w
-
-def height():
     h = float(input("Input height >> "))
-    return h
 
-def side1(l, w):
+def calculations(l, w, h):
+    global sa
     tb = float((l * w)*2)
-    return tb
-
-def side2(w, h):
-    fb = float((w * h)*2)
-    return fb
-
-def side3(l, h):
-    lr = float((l * h)*2)
-    return lr
-
-def calculations(tb, fb, lr):
-    sa = (tb+fb+lr)
-    return sa
-
-def output(sa):
+    lr = float((h * l)*2)
+    fb = float((h * w)*2)
+    sa = float(tb + lr + fb)
+    return tb, lr, fb, sa
+def end_result(sa):
     print("Total surface area:", sa)
 
-def main(l, w, h, tb, fb, lr, sa):
+def main():
     startup()
-    length()
-    width()
-    height()
-    side1(l, w)
-    side2(l, h)
-    side3(w, h)
-    calculations(tb, fb, lr)
-    output(sa)
+    inputs()
+    calculations(l, w, h)
+    end_result(sa)
 if __name__ == '__main__':
-    main(l, w, h, tb, fb, lr, sa)
+    main()
